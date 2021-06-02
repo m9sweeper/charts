@@ -38,6 +38,6 @@ entries:
     name: minesweeper
     type: application
     urls:
-    - https://github.io/m9sweeper/charts/minesweeper-0.1.0.tgz
+    - https://m9sweeper.github.io/charts/minesweeper-0.1.0.tgz
     version: 0.1.0
 generated: "2021-06-02T06:57:49.562002-05:00"
