@@ -3,7 +3,7 @@ entries:
   minesweeper:
   - apiVersion: v2
     appVersion: 0.0.1
-    created: "2021-06-02T06:57:49.569063-05:00"
+    created: "2021-06-02T07:14:19.377973-05:00"
     dependencies:
     - name: dash
       repository: https://github.io/m9sweeper/charts/m9sweeper/charts/dash
@@ -40,4 +40,4 @@ entries:
     urls:
     - https://m9sweeper.github.io/charts/minesweeper-0.1.0.tgz
     version: 0.1.0
-generated: "2021-06-02T06:57:49.562002-05:00"
+generated: "2021-06-02T07:14:19.368736-05:00"
