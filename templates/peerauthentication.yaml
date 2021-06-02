@@ -1,0 +1,12 @@
+{{- if .Values.dash.ingress.istio.enabled -}}
+---
+apiVersion: security.istio.io/v1beta1
+kind: PeerAuthentication
+metadata:
+  name: {{ include "dash.fullname" . }}
+  labels:
+    {{- include "dash.labels" . | nindent 4 }}
+spec:
+  mtls:
+    mode: {{ .Values.dash.ingress.istio.mtlsMode }}
+{{- end }}

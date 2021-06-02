@@ -1,0 +1,33 @@
+image:
+  repository: rabbitmq
+  pullPolicy: Always
+  tag: "3.8-alpine"
+
+service:
+  type: ClusterIP
+  protocol: tcp
+  port: 5672
+
+replicaCount: 1
+
+resources:
+  limits:
+    cpu: 300m
+    memory: 512Mi
+  requests:
+    cpu: 10m
+    memory: 64Mi
+
+livenessProbe: {}
+
+readinessProbe: {}
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+configData: {}
+
+secretData: {}

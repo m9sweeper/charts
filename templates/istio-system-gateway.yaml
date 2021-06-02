@@ -1,0 +1,29 @@
+{{- if .Values.dash.ingress.istio.enabled }}
+---
+apiVersion: networking.istio.io/v1beta1
+kind: Gateway
+metadata:
+  name: istio-system-gateway
+  namespace: istio-system
+spec:
+  selector:
+    istio: ingressgateway
+  servers:
+  - port:
+      number: 80
+      name: http2-istio-system
+      protocol: HTTP2
+    hosts:
+    - 
+    tls:
+      httpsRedirect: true # sends 301 redirect for http requests
+  - port:
+      number: 443
+      name: https-istio-system
+      protocol: HTTPS
+    hosts:
+    - 
+    tls:
+      mode: SIMPLE
+      credentialName: 
+{{- end }}

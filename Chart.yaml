@@ -1,0 +1,35 @@
+apiVersion: v2
+name: minesweeper
+appVersion: 0.0.1
+description: m9sweeper secures your kubernetes cluster and images.  The chart will deploy dash, trawler, and a validatingwebhook
+home: m9sweeper.io
+icon: ""
+keywords:
+- m9sweeper
+- analysis
+- docker
+- image
+- security
+- vulnerability
+- scanner
+kubeVersion: '>=1.16.0-0'
+maintainers:
+- email: info@m9sweeper.io
+  name: m9sweeper Support Team
+type: application
+version: 0.1.0
+dependencies:
+- name: dash
+  version: v0.0.1
+  repository: "https://github.io/m9sweeper/charts/m9sweeper/charts/dash"
+- name: trawler
+  version: v0.0.6
+  repository: "https://github.io/m9sweeper/charts/m9sweeper/charts/trawler"
+- name: rabbitmq
+  version: 0.0.1
+  repository: "https://github.io/m9sweeper/charts/m9sweeper/charts/rabbitmq"
+  condition: global.rabbitmq.enabled
+- name: postgresql
+  version: 0.0.1
+  repository: "https://github.io/m9sweeper/charts/m9sweeper/charts/postgres"
+  condition: global.postgres.enabled
