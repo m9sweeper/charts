@@ -1,9 +1,9 @@
 apiVersion: v2
-appVersion: 0.0.1
-description: A Helm chart for the m9sweeper Dashboard and API
-maintainers:
-- email: notify@intelletive.com
-  name: Intelletive
 name: dash
+description: A Helm chart for the m9sweeper Dashboard and API
 type: application
 version: 0.0.1
+appVersion: 0.0.1
+maintainers:
+  - name: Intelletive
+    email: notify@intelletive.com
