@@ -2,7 +2,7 @@
 apiVersion: v1
 kind: ServiceAccount
 metadata:
-  name: {{ .Chart.Name }}-scrapers-sa
+  name: minesweeper
   labels:
     {{- include "dash.labels" . | nindent 4 }}
 {{- if .Values.image.credentials.create }}
@@ -17,22 +17,39 @@ imagePullSecrets:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: {{ .Chart.Name }}-scrapers
+  name: minesweeper
 rules:
   - apiGroups: [""]
     resources: ["namespaces","pods","nodes"]
     verbs: ["get","watch","list"]
+  - apiGroups: [ "" ]
+    resources: ["events"]
+    verbs: ["get","watch","list","create"]
+{{ if .Capabilities.APIVersions.Has "constraints.gatekeeper.sh/v1beta1" -}}
+  - apiGroups: [ "constraints.gatekeeper.sh" ]
+    resources: ["*"]
+    verbs: ["get","watch","list","create","update","delete"]
+  - apiGroups: [ "templates.gatekeeper.sh" ]
+    resources: ["constrainttemplates"]
+    verbs: ["get","watch","list","create","update","delete"]
+  - apiGroups: [ "templates.gatekeeper.sh" ]
+    resources: ["constrainttemplates/finalizers"]
+    verbs: ["get","watch","list","create","update","delete"]
+  - apiGroups: [ "templates.gatekeeper.sh" ]
+    resources: ["constrainttemplates/status"]
+    verbs: ["get","watch","list","create","update","delete"]
+{{ end -}}
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-  name: {{ .Chart.Name }}-scrapers
+  name: minesweeper
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
-  name: {{ .Chart.Name }}-scrapers
+  name: minesweeper
 subjects:
 - kind: ServiceAccount
-  name: {{ .Chart.Name }}-scrapers-sa
+  name: minesweeper
   namespace: {{ .Release.Namespace }}

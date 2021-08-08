@@ -39,8 +39,6 @@ spec:
               env:
                 - name: CLI_PATH
                   value: "./cli.js"
-                - name: RABBITMQ_ENABLED
-                  value: "0"
               envFrom:
                 - secretRef:
                     name: {{ include "dash.fullname" . }}-secrets
