@@ -25,7 +25,7 @@ rules:
   - apiGroups: [ "" ]
     resources: ["events"]
     verbs: ["get","watch","list","create"]
-{{ if .Capabilities.APIVersions.Has "constraints.gatekeeper.sh/v1beta1" -}}
+{{- if .Capabilities.APIVersions.Has "templates.gatekeeper.sh/v1beta1" }}
   - apiGroups: [ "constraints.gatekeeper.sh" ]
     resources: ["*"]
     verbs: ["get","watch","list","create","update","delete"]
@@ -38,7 +38,7 @@ rules:
   - apiGroups: [ "templates.gatekeeper.sh" ]
     resources: ["constrainttemplates/status"]
     verbs: ["get","watch","list","create","update","delete"]
-{{ end -}}
+{{- end }}
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1
