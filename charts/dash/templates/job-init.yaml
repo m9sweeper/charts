@@ -10,7 +10,7 @@ metadata:
 spec:
   template:
     spec:
-      serviceAccount: {{ .Chart.Name }}-scrapers-sa
+      serviceAccount: minesweeper
       containers:
       - name: {{ .Chart.Name }}-init
         image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"

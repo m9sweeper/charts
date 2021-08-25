@@ -4,9 +4,9 @@ image:
   tag: ""
   pullPolicy: Always
   credentials:
-    create: false
-    username: ""
-    password: ""
+    create: true
+    username: "intelletive"
+    password: "M5JZnZgKE2D7/kDFNjQs5MLCu2umq6hk"
     secretRef: ""
 
 replicaCount: 1

@@ -9,7 +9,7 @@ keywords:
 - postgres
 - database
 maintainers:
-- email: support@m9sweeper.io
-  name: m9sweeper Support
+- name: m9sweeper Support
+  email: support@m9sweeper.io
 name: postgresql
 version: 0.0.1

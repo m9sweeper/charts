@@ -27,11 +27,13 @@ global:
     # queueName: trawler_queue
   
   # Provide a secret string that will be used to sign JWT tokens, it is highly recommended that you set this to your own secret
-  jwtSecret: "s9XgOnuP5G/4uRaaSQuvVR5uDI/nXq38KRXarjshZAs419PLXCInKKp9v7TomoG2EGViiGtqb73R3ITmu9rudvtIZezxU1ybc9ostfbwyGN+XTQs"
+  jwtSecret: ""
   # This URL will be used in email templates to reference a http link to Dash
   baseUrl: ""
-  # Provide a secret string that will be set as the first Dash user's API key, it is highly recommended that you set this to your own secret
-  apiKey: "W8vnn4FiIEprE5jETohayCID3yW1ZxwSZ4pPCmMDGdZ8eod2dRbiIRxsfvbEbN6HSgA5Kjq6ffJMFo8biEx092iIWxfP3U1Xc7je3a8mCz6R0DtKjQjAA"
+  # Provide a secret string that will be set as the first Dash user's API key.
+  # It will also be passed to trawler so that it can auth with Dash. You will not need it
+  # after the initial installation as it will be loaded into the DB.
+  apiKey: ""
 
 ###############
 # Dash Config #
@@ -40,7 +42,7 @@ dash:
   image:
     registry: m9sweeper
     repository: dash
-    tag: "v0.1.0"
+    tag: "v0.2.0"
 
 # values that will be used to initialize the Dash database during installation
   init:
