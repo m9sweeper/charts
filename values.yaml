@@ -42,7 +42,7 @@ dash:
   image:
     registry: m9sweeper
     repository: dash
-    tag: "v0.2.0"
+    tag: "v0.2.1"
 
 # values that will be used to initialize the Dash database during installation
   init:
