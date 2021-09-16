@@ -37,6 +37,9 @@ rules:
   - apiGroups: [ "templates.gatekeeper.sh" ]
     resources: ["constrainttemplates/status"]
     verbs: ["get","watch","list","create","update","delete"]
+  - apiGroups: [ "apiregistration.k8s.io" ]
+    resources: [ "apiservices" ]
+    verbs: [ "get","watch","list" ]
 
 ---
 apiVersion: rbac.authorization.k8s.io/v1

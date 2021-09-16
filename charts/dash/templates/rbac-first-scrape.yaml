@@ -5,6 +5,10 @@ metadata:
   name: {{ .Chart.Name }}-first-scrape-sa
   labels:
     {{- include "dash.labels" . | nindent 4 }}
+  annotations:
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "1"
+    # "helm.sh/hook-delete-policy": hook-succeeded
 {{- if .Values.image.credentials.create }}
 imagePullSecrets:
 - name: {{ .Chart.Name }}-registry-secret
@@ -18,6 +22,10 @@ kind: Role
 metadata:
   name: {{ .Chart.Name }}-first-scrape
   namespace: {{ .Release.Namespace }}
+  annotations:
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "1"
+    # "helm.sh/hook-delete-policy": hook-succeeded
 rules:
   - apiGroups: [""]
     resources: ["namespaces"]
@@ -31,6 +39,10 @@ kind: RoleBinding
 metadata:
   name: {{ .Chart.Name }}-first-scrape
   namespace: {{ .Release.Namespace }}
+  annotations:
+    "helm.sh/hook": post-install
+    "helm.sh/hook-weight": "1"
+    # "helm.sh/hook-delete-policy": hook-succeeded
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: Role

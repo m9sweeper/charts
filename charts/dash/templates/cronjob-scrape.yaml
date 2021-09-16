@@ -1,6 +1,10 @@
 {{- if .Values.clusterScraping.scheduled.enabled }}
 ---
+{{- if .Capabilities.APIVersions.Has "batch/v1/CronJob" -}}
+apiVersion: batch/v1
+{{- else -}}
 apiVersion: batch/v1beta1
+{{- end }}
 kind: CronJob
 metadata:
   name: {{ .Chart.Name }}-scheduled-scrape
@@ -26,7 +30,7 @@ spec:
             sidecar.istio.io/inject: "true"
 {{- end }}
         spec:
-          serviceAccount: {{ include "dash.name" . }}-sa
+          serviceAccount: minesweeper
           containers:
             - name: {{ .Chart.Name }}-scheduled-scrape
               image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"

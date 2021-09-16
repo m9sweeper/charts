@@ -1,4 +1,4 @@
-{{- if .Values.clusterScraping.history.enabled }}
+{{- if .Values.clusterScraping.gatekeeperExceptionBlock.enabled }}
 ---
 {{- if .Capabilities.APIVersions.Has "batch/v1/CronJob" -}}
 apiVersion: batch/v1
@@ -7,7 +7,7 @@ apiVersion: batch/v1beta1
 {{- end }}
 kind: CronJob
 metadata:
-  name: {{ .Chart.Name }}-scrape-history
+  name: {{ .Chart.Name }}-gatekeeper-exception-block
   labels:
     {{- include "dash.labels" . | nindent 4 }}
 spec:
@@ -38,7 +38,7 @@ spec:
               args:
                 - "run"
                 - "cli"
-                - "populate:kubernetes-history"
+                - "sync:gatekeeper-exceptions"
               env:
                 - name: CLI_PATH
                   value: "./cli.js"
@@ -56,5 +56,5 @@ spec:
 {{- end }}
 {{- end }}
           restartPolicy: OnFailure
-  schedule: {{ .Values.clusterScraping.history.schedule | quote }}
+  schedule: {{ .Values.clusterScraping.gatekeeperExceptionBlock.schedule | quote }}
 {{- end }}

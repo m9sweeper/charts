@@ -2,7 +2,7 @@ apiVersion: v1
 entries:
   minesweeper:
   - apiVersion: v2
-    appVersion: 0.1.5
+    appVersion: 0.1.6
     created: "2021-08-08T20:29:03.989881-05:00"
     dependencies:
     - name: dash
@@ -21,7 +21,7 @@ entries:
       version: v1.0.0
     description: m9sweeper secures your kubernetes cluster and images.  The chart
       will deploy dash, trawler, and a validatingwebhook
-    digest: 870cefbb251e69650.1.5945565e16fbd2ef161dfce6ef77b958804e1c4953bc
+    digest: 870cefbb251e69650.1.6945565e16fbd2ef161dfce6ef77b958804e1c4953bc
     home: m9sweeper.io
     keywords:
     - m9sweeper
@@ -38,6 +38,6 @@ entries:
     name: minesweeper
     type: application
     urls:
-    - minesweeper-0.1.5.tgz
-    version: 0.1.5
+    - minesweeper-0.1.6.tgz
+    version: 0.1.6
 generated: "2021-08-08T20:29:03.986622-05:00"

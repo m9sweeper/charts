@@ -88,6 +88,14 @@ clusterScraping:
   history:
     enabled: true
     schedule: "1 0 * * *" # every day 12.01 am
+  # Calculating gatekeeper exception block
+  gatekeeperExceptionBlock:
+    enabled: true
+    schedule: "30 * * * *" # every 30 min
+  # Updating exception status
+  updateExceptionStatus:
+    enabled: true
+    schedule: "1 0 * * *" # every day 12.01 am
 
 ################
 # Email Config #
